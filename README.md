@@ -1,5 +1,6 @@
 # Repository Template
 
+[![Build Status](https://travis-ci.org/cs130-w21/template.svg?branch=master)](https://travis-ci.org/cs130-w21/template)
 [![Release](https://img.shields.io/github/v/release/cs130-w21/template?label=release)](https://github.com/cs130-w21/template/releases/latest)
 
 This repo serves as a template for repositories in this organization. The following information describes how the native features/workflows of Github can be customized to work in a scrum development process.
@@ -91,3 +92,13 @@ A repository can also be setup to build continuously whenever a commit is pushed
 The CI/CD script will also be run when a new pull request is created or when more commits are pushed to its linked `issue` branch. Such build assures peer reviewers that the new commits when accepted will not break the build. In fact, a successful CI/CD build can be a prerequisute for peer reviewers to look at the changes.
 
 When a tag is pushed to the `master` branch, the CI/CD script will additionally deliver and/or deploy the built artifact(s). The script can also be configured to create a Github release based on the tag.
+
+### Let's Meet
+
+Our Motivation:
+
+Online meetings and events have become the norm in the era of the pandemic where physical
+distance and differences in time-zone have become irrelevant in current teamwork dynamics.
+Organizing these meetings with every participant’s schedule in mind and reducing human error
+in the event scheduling is highly desirable for increasing the team's productivity. To meet the
+needs of the post-pandemic user we propose our scheduling application, Let’s Meet.
