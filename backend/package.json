@@ -1,0 +1,19 @@
+{
+  "name": "lets-meet-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs130-w22/Group-A6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs130-w22/Group-A6/issues"
+  },
+  "homepage": "https://github.com/cs130-w22/Group-A6#readme"
+}
