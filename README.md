@@ -39,6 +39,7 @@ Run `npm start` to start the server
 
     Let's Meet backend: listening on port 3000
 
+Run `npm run dev` to start the server with nodemon to restart automatically when file changes are detected
 ## Issues
 
 An issue is a unit of tracking work. Issues can be classified into different classes using [labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels). This can be used to classify issues in the scrum process as follows.
