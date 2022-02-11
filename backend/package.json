@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
+    "test": "node tests/testMain.js",
     "start": "node index.js",
     "dev": "nodemon app.js"
   },
