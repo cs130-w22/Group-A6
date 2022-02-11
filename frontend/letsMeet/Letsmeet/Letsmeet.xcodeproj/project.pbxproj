@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,15 @@
 		BE0F4AF927B36B2600517A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0F4AF727B36B2600517A41 /* Main.storyboard */; };
 		BE0F4AFB27B36B2900517A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE0F4AFA27B36B2900517A41 /* Assets.xcassets */; };
 		BE0F4AFE27B36B2900517A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0F4AFC27B36B2900517A41 /* LaunchScreen.storyboard */; };
+		BE0F4B2427B6FB1700517A41 /* datePick.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F4B2327B6FB1600517A41 /* datePick.swift */; };
+		BE0F4B2627B6FDF600517A41 /* waitingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */; };
+		CECA4F9175CB61A7D0425137 /* Pods_Letsmeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F200B746B31072D854A170E /* Pods_Letsmeet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F200B746B31072D854A170E /* Pods_Letsmeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Letsmeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		360B4CED56D7226ACF64C6B8 /* Pods-Letsmeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Letsmeet.debug.xcconfig"; path = "Target Support Files/Pods-Letsmeet/Pods-Letsmeet.debug.xcconfig"; sourceTree = "<group>"; };
+		753BF81BED3F4A7B5B34F946 /* Pods-Letsmeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Letsmeet.release.xcconfig"; path = "Target Support Files/Pods-Letsmeet/Pods-Letsmeet.release.xcconfig"; sourceTree = "<group>"; };
 		BE0F4AEE27B36B2600517A41 /* Letsmeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Letsmeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0F4AF127B36B2600517A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE0F4AF327B36B2600517A41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,8 @@
 		BE0F4AFA27B36B2900517A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE0F4AFD27B36B2900517A41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE0F4AFF27B36B2900517A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE0F4B2327B6FB1600517A41 /* datePick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datePick.swift; sourceTree = "<group>"; };
+		BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waitingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECA4F9175CB61A7D0425137 /* Pods_Letsmeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2FB78FAD7347C76373A148 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				360B4CED56D7226ACF64C6B8 /* Pods-Letsmeet.debug.xcconfig */,
+				753BF81BED3F4A7B5B34F946 /* Pods-Letsmeet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8CAAF59887E34BE9CF16DA0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F200B746B31072D854A170E /* Pods_Letsmeet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE0F4AE527B36B2600517A41 = {
 			isa = PBXGroup;
 			children = (
 				BE0F4AF027B36B2600517A41 /* Letsmeet */,
 				BE0F4AEF27B36B2600517A41 /* Products */,
+				2F2FB78FAD7347C76373A148 /* Pods */,
+				8CAAF59887E34BE9CF16DA0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +88,8 @@
 				BE0F4AF327B36B2600517A41 /* SceneDelegate.swift */,
 				BE0F4AF527B36B2600517A41 /* ViewController.swift */,
 				BE0F4AF727B36B2600517A41 /* Main.storyboard */,
+				BE0F4B2327B6FB1600517A41 /* datePick.swift */,
+				BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */,
 				BE0F4AFA27B36B2900517A41 /* Assets.xcassets */,
 				BE0F4AFC27B36B2900517A41 /* LaunchScreen.storyboard */,
 				BE0F4AFF27B36B2900517A41 /* Info.plist */,
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE0F4B0227B36B2900517A41 /* Build configuration list for PBXNativeTarget "Letsmeet" */;
 			buildPhases = (
+				15247639378244AFC6E84859 /* [CP] Check Pods Manifest.lock */,
 				BE0F4AEA27B36B2600517A41 /* Sources */,
 				BE0F4AEB27B36B2600517A41 /* Frameworks */,
 				BE0F4AEC27B36B2600517A41 /* Resources */,
+				483B11D9C0DC2409DE6846AE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +164,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15247639378244AFC6E84859 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Letsmeet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		483B11D9C0DC2409DE6846AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Letsmeet/Pods-Letsmeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Letsmeet/Pods-Letsmeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Letsmeet/Pods-Letsmeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE0F4AEA27B36B2600517A41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0F4B2627B6FDF600517A41 /* waitingScreen.swift in Sources */,
 				BE0F4AF627B36B2600517A41 /* ViewController.swift in Sources */,
 				BE0F4AF227B36B2600517A41 /* AppDelegate.swift in Sources */,
+				BE0F4B2427B6FB1700517A41 /* datePick.swift in Sources */,
 				BE0F4AF427B36B2600517A41 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +359,7 @@
 		};
 		BE0F4B0327B36B2900517A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 360B4CED56D7226ACF64C6B8 /* Pods-Letsmeet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +379,7 @@
 		};
 		BE0F4B0427B36B2900517A41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 753BF81BED3F4A7B5B34F946 /* Pods-Letsmeet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
