@@ -16,18 +16,17 @@ app.post('/validate', (req, res) => {
 
   async function verify(){
     const ticket = await client.verifyIdToken({
-      idToken: token,
+      idToken: token1,
       audience: clientId,
     });
 
     const payload = ticket.getPayload();
-    return payload['sub'];
+    resolve(payload['sub']);
   }
 
-  const userId = verify().catch(console.error);
-
-  res.send(userId);
-
+  verify().then(x => {
+    res.send(x);
+  });
 })
 app.listen(port, () => {
   console.log(`Let's Meet backend: listening on port ${port}`)
