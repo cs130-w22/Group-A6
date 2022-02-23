@@ -32,6 +32,7 @@
 		BE0F4AFF27B36B2900517A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0F4B2327B6FB1600517A41 /* datePick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datePick.swift; sourceTree = "<group>"; };
 		BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waitingScreen.swift; sourceTree = "<group>"; };
+		BE9F98DB27C5F1430092DAA9 /* MyApp_Bridging_Header_h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyApp_Bridging_Header_h.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 				BE0F4AF327B36B2600517A41 /* SceneDelegate.swift */,
 				BE0F4AF527B36B2600517A41 /* ViewController.swift */,
 				BE0F4AF727B36B2600517A41 /* Main.storyboard */,
+				BE9F98DB27C5F1430092DAA9 /* MyApp_Bridging_Header_h.h */,
 				BE0F4B2327B6FB1600517A41 /* datePick.swift */,
 				BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */,
 				BE0F4AFA27B36B2900517A41 /* Assets.xcassets */,

@@ -9,4 +9,6 @@ target 'Letsmeet' do
   pod 'GoogleSignIn'
   pod 'NVActivityIndicatorView'
   pod 'DatePicker', '~> 1.3.0'
+  pod 'GoogleAPIClientForREST/Calendar'
+  pod 'Alamofire', '~> 5.5'
 end
