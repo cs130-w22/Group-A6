@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LLX-dL-FK5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,22 +17,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDU-Op-gSa" customClass="GIDSignInButton">
-                                <rect key="frame" x="70" y="251" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-Z7-nPp">
+                                <rect key="frame" x="87" y="251" width="240" height="186"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDU-Op-gSa" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchDown" id="If8-fX-UfB"/>
+                                        </connections>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3C-E7-KgX">
+                                        <rect key="frame" x="86.5" y="155" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="calendarAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hGc-z1-7WK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TDU-Op-gSa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IOL-pY-51h"/>
-                            <constraint firstItem="TDU-Op-gSa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kdv-NQ-DuW"/>
+                            <constraint firstItem="wqZ-Z7-nPp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HmO-gk-WtV"/>
+                            <constraint firstItem="wqZ-Z7-nPp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nAX-SH-eFj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signinButton" destination="TDU-Op-gSa" id="Jhl-ev-gRJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="94"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zMa-km-fpr">
+            <objects>
+                <viewController id="iCu-47-gT7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ne-RR-TLr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zGq-7u-eFn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mbs-7b-AGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="108"/>
         </scene>
         <!--Date Pick-->
         <scene sceneID="JwO-Hu-yNP">
@@ -46,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCp-xg-0om" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="94"/>
+            <point key="canvasLocation" x="1738" y="106"/>
         </scene>
         <!--Waiting Screen-->
         <scene sceneID="eao-M7-91Z">
@@ -57,10 +92,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-mc-Diz">
-                                <rect key="frame" x="68" y="452" width="278" height="239"/>
+                                <rect key="frame" x="68" y="452" width="278.5" height="239"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting on Meeting Times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-uA-XMW">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="278.5" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -88,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LG4-tb-iSp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="94"/>
+            <point key="canvasLocation" x="2416" y="106"/>
         </scene>
     </scenes>
     <resources>
