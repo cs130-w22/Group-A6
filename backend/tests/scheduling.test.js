@@ -22,7 +22,9 @@ golden_output = '7/1/2022, 5:00:00 AM,7/1/2022, 6:00:00 AM,7/1/2022, 5:30:00 AM,
 
 output = String(scheduling.calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, endTime, 60).toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
 
-console.assert(output == golden_output);
+test('Scheduling test 1: ', () => {
+    expect(output).toBe(golden_output);
+  });
 
 // Test 2
 conflictTimes = [
@@ -40,4 +42,6 @@ golden_output = '7/1/2022, 12:30:00 PM,7/1/2022, 1:30:00 PM,7/1/2022, 1:00:00 PM
 
 output = String(scheduling.calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, endTime, 60).toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
 
-console.assert(output == golden_output);
+test('Scheduling test 2: ', () => {
+    expect(output).toBe(golden_output);
+  });
