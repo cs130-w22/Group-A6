@@ -10,7 +10,7 @@ const { initializeApp, applicationDefault, cert } = require('firebase-admin/lib/
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/lib/firestore');
 
 
-const serviceAccount = require('./firebase.json');
+const serviceAccount = require('/etc/pki/tls/certs/firebase.json');
 
 initializeApp({
   credential: cert(serviceAccount)
