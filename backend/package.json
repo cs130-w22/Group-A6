@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/cs130-w22/Group-A6#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "firebase-admin": "^10.0.2"
   },
   "keywords": [],
   "description": "",
