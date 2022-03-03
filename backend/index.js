@@ -6,8 +6,8 @@ const port = 3000
 app.use(bodyParser.urlencoded({extended:true}))
 
 
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/lib/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/lib/firestore');
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
 
 const serviceAccount = require('/etc/pki/tls/certs/firebase.json');
