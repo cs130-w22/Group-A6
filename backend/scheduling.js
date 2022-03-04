@@ -1,3 +1,4 @@
+
 /**
  * This function returns up to a variable number (default = 5) of optimal meeting times.
  *
@@ -31,7 +32,7 @@ function calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, e
     meeting_end = new Date(meeting_start);
     meeting_end.setMinutes(startTime.getMinutes() + meetingDuration);
 
-    const INTERVAL = 30; // We search over each 30 minute period by default 
+    const INTERVAL = 15; // We search over each 30 minute period by default
     while (meeting_end <= endTime){
         for (const participant of conflictTimes) { // Loop over each participant
             for (const time_interval of participant) { // Loop over each time interval
