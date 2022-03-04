@@ -1,6 +1,6 @@
 # Let's Meet
 
-[![Build Status](https://travis-ci.org/cs130-w21/template.svg?branch=master)](https://travis-ci.org/cs130-w21/template)
+[![Build Status](https://app.travis-ci.com/cs130-w22/Group-A6.svg?branch=main)](https://app.travis-ci.com/github/cs130-w22/Group-A6)
 [![Release](https://img.shields.io/github/v/release/cs130-w21/template?label=release)](https://github.com/cs130-w21/template/releases/latest)
 
 ## Our Motivation
