@@ -33,6 +33,7 @@ app.post('/createmeeting', (req, res) => {
     const meetingEnd = req.body['meetingEnd']
     const duration = req.body['duration']
 
+    const userRef = db.collection('users').doc(meetingHost)
 
 
     //const startTimestamp = new Date(meetingStart);
@@ -44,9 +45,11 @@ app.post('/createmeeting', (req, res) => {
         meetingEnd: meetingEnd,
         duration: parseInt(duration)
     }).then(result => {
+        userRef.set({
+            hostedMeetings: FieldValue.arrayUnion(result.id)
+        }, {merge:true}).then()
         res.send(result.id)
     });
-
 })
 
 app.post('/updatemeeting', (req, res) =>
@@ -58,13 +61,18 @@ app.post('/updatemeeting', (req, res) =>
    const preferredTimes = req.body['preferredTimes']
 
    const meetingRef = db.collection('meetings').doc(meetingId)
+    const userRef = db.collection('users').doc(attendee)
 
     meetingRef.update({
         attendees: FieldValue.arrayUnion(attendee),
         conflicts: FieldValue.arrayUnion(meetingConflicts),
         preferredTimes: FieldValue.arrayUnion(preferredTimes)
     }).then(result => {
+        userRef.set({
+            attendedMeetings: FieldValue.arrayUnion(meetingId)
+        }, {merge:true}).then()
         res.send('OK')
+
     });
 });
 
@@ -94,10 +102,30 @@ app.post('/createmeetingevent', (req, res) => {
         var preferredIntervals = [[[]]]
         const optimalTime = scheduler.calculateOptimalMeetingTime(conflictIntervals, preferredIntervals, new Date(data['meetingStart']), new Date(data['meetingEnd']), duration)
 
+        meetingRef.update({meetingCreated: true}).then()
         res.send({optimalTime:optimalTime, attendees:data['attendees']})
+
+
     })
 });
 
+app.post('/getmeetinginfo', (req, res)=> {
+    const meetingId = req.body['meetingId']
+
+    const meetingRef = db.collection('meetings').doc(meetingId)
+
+    meetingRef.get().then(result => {
+        res.send(result.data())
+    });
+});
+
+app.post('/getuserinfo', (req, res) => {
+    const userRef = db.collection('users').doc(req.body['userId'])
+
+    userRef.get().then(result => {
+        res.send(result.data())
+    })
+})
 
 app.listen(port, () => {
   console.log(`Let's Meet backend: listening on port ${port}`)
