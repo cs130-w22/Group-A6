@@ -11,8 +11,7 @@ const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/lib/fire
 
 const scheduler = require('./scheduling')
 
-
-const serviceAccount = require('./firebase.json');
+const serviceAccount = require('/tmp/firebase.json');
 
 initializeApp({
   credential: cert(serviceAccount)
