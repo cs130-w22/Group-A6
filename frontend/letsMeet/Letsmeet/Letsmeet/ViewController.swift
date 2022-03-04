@@ -9,6 +9,7 @@ import UIKit
 import GoogleSignIn
 import GoogleAPIClientForREST
 import Alamofire
+import SwiftyJSON
 
 
 class ViewController: UIViewController{
@@ -37,7 +38,7 @@ class ViewController: UIViewController{
            
            
            
-    
+           UserDefaults.standard.set(user.authentication.accessToken, forKey: "auth")
            
          
 
@@ -52,9 +53,41 @@ class ViewController: UIViewController{
         let additionalScopes = ["https://www.googleapis.com/auth/calendar"]
 
         
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "auth")! ?? "" ?? "",
+            "Accept": "application/json"
+        ]
+        
+
+        AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", headers: headers).responseJSON { response in
+            print(response.value)
+            switch response.result {
+                case .success(let value):
+                
+                do {
+                    let events = try JSONDecoder().decode(Events.self, from: response.data!)
+                    let encoder = JSONEncoder()
+                    
+                    if let encoded = try? encoder.encode(events) {
+                        let defaults = UserDefaults.standard
+                        defaults.set(encoded, forKey: "events")
+                        self.nextButton.isEnabled = true
+                    }
+                } catch(let error) {
+                  print(error)
+                }
+
+                case .failure(let error):
+                    print(error)
+                }
+        }
+        
+        
         GIDSignIn.sharedInstance.addScopes(additionalScopes, presenting: self) { user, error in
             guard error == nil else { return }
+            print(error)
             guard let user = user else { return }
+            
 
             let headers: HTTPHeaders = [
              "Authorization": "Bearer " + user.authentication.accessToken,
@@ -62,15 +95,28 @@ class ViewController: UIViewController{
             ]
             
 
-            AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", headers: headers).responseString { response in
-                debugPrint(response)
-                print(response.value)
-                print(response.data)
+            AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", headers: headers).responseJSON { response in
+                print(response.result)
+                switch response.result {
+                    case .success(let value):
+                    
+                    do {
+                        let events = try JSONDecoder().decode(Events.self, from: response.data!)
+                        print(events.items)
+ 
+                    } catch(let error) {
+                      print(error)
+                    }
+
+                    case .failure(let error):
+                        print(error)
+                    }
             }
                     }
         
         
 
     }
+    @IBOutlet weak var nextButton: UIButton!
 }
 
