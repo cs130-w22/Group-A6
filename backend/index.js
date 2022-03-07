@@ -57,7 +57,7 @@ app.post('/updatemeeting', (req, res) =>
    const attendee = req.body['attendee']
    const meetingId = req.body['meetingId']
 
-   const meetingConflicts = req.body['meetingConflict']
+   const meetingConflicts = JSON.stringify(req.body['meetingConflict'])
    const preferredTimes = ""
 
    const meetingRef = db.collection('meetings').doc(meetingId)
