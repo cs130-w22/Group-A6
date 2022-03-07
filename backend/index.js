@@ -43,7 +43,8 @@ app.post('/createmeeting', (req, res) => {
         meetingHost: meetingHost,
         meetingStart: meetingStart,
         meetingEnd: meetingEnd,
-        duration: parseInt(duration)
+        duration: parseInt(duration),
+        meetingCreated: false
     }).then(result => {
         userRef.set({
             hostedMeetings: FieldValue.arrayUnion(result.id)
