@@ -23,6 +23,7 @@
   "keywords": [],
   "description": "",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

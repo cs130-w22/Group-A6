@@ -9,3 +9,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Let's Meet backend: listening on port ${port}`)
 })
+
+module.exports = app;
