@@ -90,11 +90,10 @@ app.post('/createmeetingevent', (req, res) => {
 
 
         var conflictIntervals = [[]]
-        for(let i = 0; i < conflictsArr.length; i++){
+        for(let i = 0; i < conflictsArr.length; i+=2){
             var temp = []
-            for(let j = 0; j < conflictsArr[i].length; j++){
-                temp.push(new Date(conflictsArr[i][j]))
-            }
+            temp.push(new Date(conflictsArr[i]))
+            temp.push(new Date(conflictsArr[i+1]))
             conflictIntervals[0].push(temp)
         }
         const duration = data['duration']
