@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LLX-dL-FK5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,79 +17,204 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDU-Op-gSa" customClass="GIDSignInButton">
-                                <rect key="frame" x="70" y="251" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-Z7-nPp">
+                                <rect key="frame" x="87" y="251" width="240" height="244"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDU-Op-gSa" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchDown" id="If8-fX-UfB"/>
+                                        </connections>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3C-E7-KgX">
+                                        <rect key="frame" x="86.5" y="155" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="calendarAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hGc-z1-7WK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-WA-Ma2">
+                                        <rect key="frame" x="93" y="213" width="54" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                                        <connections>
+                                            <segue destination="Vcc-tP-CqA" kind="modal" modalPresentationStyle="fullScreen" id="bDp-q4-oN3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TDU-Op-gSa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IOL-pY-51h"/>
-                            <constraint firstItem="TDU-Op-gSa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kdv-NQ-DuW"/>
+                            <constraint firstItem="wqZ-Z7-nPp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HmO-gk-WtV"/>
+                            <constraint firstItem="wqZ-Z7-nPp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nAX-SH-eFj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="9mQ-WA-Ma2" id="nbn-n7-Nsf"/>
+                        <outlet property="signinButton" destination="TDU-Op-gSa" id="Jhl-ev-gRJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="94"/>
         </scene>
-        <!--Date Pick-->
-        <scene sceneID="JwO-Hu-yNP">
+        <!--Meetings View Table View Controller-->
+        <scene sceneID="aVN-z5-ntQ">
             <objects>
-                <viewController id="A9A-Na-Mb4" customClass="datePick" customModule="Letsmeet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wFd-iG-gkv">
+                <tableViewController id="Vcc-tP-CqA" customClass="meetingsViewTableViewController" customModule="Letsmeet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zSm-dj-8S8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="KT8-8Z-GLz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fCp-xg-0om" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="16" reuseIdentifier="right" textLabel="nLQ-5p-dbA" detailTextLabel="efF-0e-o7X" style="IBUITableViewCellStyleValue1" id="xKK-Jo-Kfy">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xKK-Jo-Kfy" id="eH1-WV-d3w">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nLQ-5p-dbA">
+                                            <rect key="frame" x="20" y="15" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="efF-0e-o7X">
+                                            <rect key="frame" x="361" y="15" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vcc-tP-CqA" id="dMj-s7-EXm"/>
+                            <outlet property="delegate" destination="Vcc-tP-CqA" id="B0U-VS-rPe"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BJm-n8-he6" kind="presentation" identifier="host" id="rca-ab-l8l"/>
+                        <segue destination="MnO-Vg-DYh" kind="presentation" identifier="guest" id="T9q-0u-UIh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hst-1C-XfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="94"/>
+            <point key="canvasLocation" x="833" y="94"/>
         </scene>
-        <!--Waiting Screen-->
-        <scene sceneID="eao-M7-91Z">
+        <!--Create Meeting-->
+        <scene sceneID="9rx-Cf-Umq">
             <objects>
-                <viewController id="LLX-dL-FK5" customClass="waitingScreen" customModule="Letsmeet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jpj-Xj-Dr5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="BJm-n8-he6" customClass="createMeeting" customModule="Letsmeet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Inr-4C-z3P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="nLt-mc-Diz">
-                                <rect key="frame" x="68" y="452" width="278" height="239"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-H7-nm7">
+                                <rect key="frame" x="47" y="39" width="320" height="764"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting on Meeting Times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-uA-XMW">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q5-ie-eOo">
+                                        <rect key="frame" x="141.5" y="0.0" width="37.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tgq-EQ-cUs" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                        <rect key="frame" x="0.0" y="111" width="240" height="128"/>
-                                    </view>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DNs-Tz-E0b">
+                                        <rect key="frame" x="0.0" y="85.5" width="320" height="216"/>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyQ-4l-cBt">
+                                        <rect key="frame" x="145.5" y="366.5" width="29.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ueo-Er-8vu">
+                                        <rect key="frame" x="0.0" y="452" width="320" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-8Q-W1b">
+                                        <rect key="frame" x="126.5" y="733" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create"/>
+                                        <connections>
+                                            <action selector="finishMeeting:" destination="BJm-n8-he6" eventType="touchUpInside" id="fIq-VV-Vm3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="FiA-Yl-ykU"/>
+                        <viewLayoutGuide key="safeArea" id="OBf-it-wFJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerX" secondItem="jpj-Xj-Dr5" secondAttribute="centerX" id="2nP-1u-gOX"/>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerX" secondItem="jpj-Xj-Dr5" secondAttribute="centerX" id="4ry-cp-tcO"/>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerX" secondItem="jpj-Xj-Dr5" secondAttribute="centerX" id="bxA-Ec-Ypn"/>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerY" secondItem="jpj-Xj-Dr5" secondAttribute="centerY" id="nVX-MV-bDN"/>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerY" secondItem="jpj-Xj-Dr5" secondAttribute="centerY" id="oVm-W7-MhX"/>
-                            <constraint firstItem="nLt-mc-Diz" firstAttribute="centerY" secondItem="jpj-Xj-Dr5" secondAttribute="centerY" id="wtv-6r-O9a"/>
+                            <constraint firstItem="fLZ-H7-nm7" firstAttribute="centerY" secondItem="Inr-4C-z3P" secondAttribute="centerY" id="Jdi-E0-0NQ"/>
+                            <constraint firstItem="fLZ-H7-nm7" firstAttribute="centerX" secondItem="Inr-4C-z3P" secondAttribute="centerX" id="toS-Lo-Xwj"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animate" destination="Tgq-EQ-cUs" id="QlL-8s-aoZ"/>
+                        <outlet property="endDate" destination="Ueo-Er-8vu" id="ce8-xB-dTr"/>
+                        <outlet property="startDate" destination="DNs-Tz-E0b" id="sXf-Dc-no4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LG4-tb-iSp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTL-eY-4Q8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="94"/>
+            <point key="canvasLocation" x="1649" y="86"/>
+        </scene>
+        <!--Join Meeting-->
+        <scene sceneID="Iba-TS-2sW">
+            <objects>
+                <viewController id="MnO-Vg-DYh" customClass="joinMeeting" customModule="Letsmeet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h9G-oR-MIE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="by1-ZI-hqs">
+                                <rect key="frame" x="179" y="343" width="56" height="156"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYF-Hp-3qm">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="joinField:" destination="MnO-Vg-DYh" eventType="editingDidEnd" id="tIA-CY-nt3"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pay-Me-P7p">
+                                        <rect key="frame" x="0.0" y="64" width="56" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Join"/>
+                                        <connections>
+                                            <action selector="join:" destination="MnO-Vg-DYh" eventType="touchUpInside" id="3ub-3w-fS8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vu-2C-uM0">
+                                        <rect key="frame" x="0.0" y="125" width="56" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qs4-3V-pPI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="by1-ZI-hqs" firstAttribute="centerX" secondItem="h9G-oR-MIE" secondAttribute="centerX" id="H80-Gj-zCe"/>
+                            <constraint firstItem="by1-ZI-hqs" firstAttribute="centerY" secondItem="h9G-oR-MIE" secondAttribute="centerY" id="IgG-aE-h7X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="joinField" destination="QYF-Hp-3qm" id="qaL-DW-qdT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQs-XM-MKm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648" y="752"/>
         </scene>
     </scenes>
     <resources>
