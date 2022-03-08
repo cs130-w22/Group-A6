@@ -37,7 +37,7 @@ class ViewController: UIViewController{
            guard let user = user else { return }
            
            
-           
+           UserDefaults.standard.set(user.profile?.email, forKey: "email")
            UserDefaults.standard.set(user.authentication.accessToken, forKey: "auth")
            
          
@@ -67,7 +67,6 @@ class ViewController: UIViewController{
                 do {
                     let events = try JSONDecoder().decode(Events.self, from: response.data!)
                     let encoder = JSONEncoder()
-                    
                     if let encoded = try? encoder.encode(events) {
                         let defaults = UserDefaults.standard
                         defaults.set(encoded, forKey: "events")

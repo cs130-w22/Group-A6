@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - Events
 struct Events: Codable {
-    let defaultReminders: [DefaultReminder?]
+    let defaultReminders: [DefaultReminder?]?
     let items: [Item]?
     let timeZone, accessRole, nextSyncToken, etag: String?
     let updated, kind, summary: String?
@@ -51,11 +51,26 @@ struct Creator: Codable {
 
 // MARK: - End
 struct DateVal: Codable {
-    let timeZone: String?
-    let dateTime: String?
+    var timeZone: String?
+    var dateTime: String?
 }
 
 // MARK: - Reminders
 struct Reminders: Codable {
     let useDefault: Bool?
+}
+
+
+public struct MeetingInfo: Codable {
+    var conflicts: [String]?
+    var duration: Int?
+    var meetingHost: String?
+    var meetingCreated: Bool?
+    var preferredTimes, attendees: [String]?
+    var meetingStart, meetingEnd: String?
+}
+
+public struct CreatedMeeting: Codable {
+    var optimalTime: [[String?]]?
+    var attendees: [String?]?
 }

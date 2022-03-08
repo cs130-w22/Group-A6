@@ -17,6 +17,9 @@
 		BE0F4B2627B6FDF600517A41 /* waitingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */; };
 		BE9F98DD27C63AA80092DAA9 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F98DC27C63AA80092DAA9 /* Events.swift */; };
 		BEFABFDC27D1EB1600822EC7 /* meetingsViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFABFDB27D1EB1600822EC7 /* meetingsViewTableViewController.swift */; };
+		BEFABFDE27D2DF2600822EC7 /* createMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFABFDD27D2DF2600822EC7 /* createMeeting.swift */; };
+		BEFABFE027D2DF3400822EC7 /* joinMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFABFDF27D2DF3400822EC7 /* joinMeeting.swift */; };
+		BEFABFE227D2E46600822EC7 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFABFE127D2E46600822EC7 /* functions.swift */; };
 		CECA4F9175CB61A7D0425137 /* Pods_Letsmeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F200B746B31072D854A170E /* Pods_Letsmeet.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		BE9F98DB27C5F1430092DAA9 /* MyApp_Bridging_Header_h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyApp_Bridging_Header_h.h; sourceTree = "<group>"; };
 		BE9F98DC27C63AA80092DAA9 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		BEFABFDB27D1EB1600822EC7 /* meetingsViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meetingsViewTableViewController.swift; sourceTree = "<group>"; };
+		BEFABFDD27D2DF2600822EC7 /* createMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createMeeting.swift; sourceTree = "<group>"; };
+		BEFABFDF27D2DF3400822EC7 /* joinMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinMeeting.swift; sourceTree = "<group>"; };
+		BEFABFE127D2E46600822EC7 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +99,16 @@
 				BE0F4AF327B36B2600517A41 /* SceneDelegate.swift */,
 				BE0F4AF527B36B2600517A41 /* ViewController.swift */,
 				BE0F4AF727B36B2600517A41 /* Main.storyboard */,
+				BEFABFDD27D2DF2600822EC7 /* createMeeting.swift */,
 				BEFABFDB27D1EB1600822EC7 /* meetingsViewTableViewController.swift */,
 				BE9F98DB27C5F1430092DAA9 /* MyApp_Bridging_Header_h.h */,
 				BE0F4B2327B6FB1600517A41 /* datePick.swift */,
+				BEFABFDF27D2DF3400822EC7 /* joinMeeting.swift */,
 				BE0F4B2527B6FDF600517A41 /* waitingScreen.swift */,
+				BEFABFE127D2E46600822EC7 /* functions.swift */,
 				BE9F98DC27C63AA80092DAA9 /* Events.swift */,
-				BE0F4AFA27B36B2900517A41 /* Assets.xcassets */,
 				BE0F4AFC27B36B2900517A41 /* LaunchScreen.storyboard */,
+				BE0F4AFA27B36B2900517A41 /* Assets.xcassets */,
 				BE0F4AFF27B36B2900517A41 /* Info.plist */,
 			);
 			path = Letsmeet;
@@ -220,8 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE9F98DD27C63AA80092DAA9 /* Events.swift in Sources */,
+				BEFABFE227D2E46600822EC7 /* functions.swift in Sources */,
+				BEFABFE027D2DF3400822EC7 /* joinMeeting.swift in Sources */,
 				BE0F4B2627B6FDF600517A41 /* waitingScreen.swift in Sources */,
 				BE0F4AF627B36B2600517A41 /* ViewController.swift in Sources */,
+				BEFABFDE27D2DF2600822EC7 /* createMeeting.swift in Sources */,
 				BE0F4AF227B36B2600517A41 /* AppDelegate.swift in Sources */,
 				BE0F4B2427B6FB1700517A41 /* datePick.swift in Sources */,
 				BEFABFDC27D1EB1600822EC7 /* meetingsViewTableViewController.swift in Sources */,
