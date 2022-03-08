@@ -55,6 +55,12 @@ struct DateVal: Codable {
     var dateTime: String?
 }
 
+
+public struct dater: Codable {
+    var start: String?
+    var end: String?
+}
+
 // MARK: - Reminders
 struct Reminders: Codable {
     let useDefault: Bool?
