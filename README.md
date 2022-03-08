@@ -1,7 +1,7 @@
 # Let's Meet
 
 [![Build Status](https://app.travis-ci.com/cs130-w22/Group-A6.svg?branch=main)](https://app.travis-ci.com/github/cs130-w22/Group-A6)
-
+[![Deploys backend to elastic beanstalk](https://github.com/cs130-w22/Group-A6/actions/workflows/cd.yml/badge.svg)](https://github.com/cs130-w22/Group-A6/actions/workflows/cd.yml)
 ## Our Motivation
 
 Online meetings and events have become the norm in the era of the pandemic where physical
