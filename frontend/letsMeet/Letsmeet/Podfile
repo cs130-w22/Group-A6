@@ -13,4 +13,5 @@ target 'Letsmeet' do
   pod 'Alamofire', '~> 5.5'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Floaty', '~> 4.2.0'
+  pod 'CleanyModal'
 end

@@ -7,14 +7,19 @@
 
 import UIKit
 import Floaty
+import CleanyModal
+import MessageUI
 
 class meetingsViewTableViewController: UITableViewController {
 
     var meetings = [String:Bool]()
+    var meetingInfo = [String: MeetingInfo]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getIntervals()
         if(UserDefaults.standard.object(forKey: "meetings") as? [String:Bool] != nil){
             
             meetings  = (UserDefaults.standard.object(forKey: "meetings") as? [String:Bool])!
@@ -25,15 +30,18 @@ class meetingsViewTableViewController: UITableViewController {
             
             meetings = ["Sahen": true]
             
+         
+            
         }
         let floaty = Floaty()
       
  
         floaty.addItem(title: "Create Meeting", handler: { item in
-           
+            self.performSegue(withIdentifier: "host", sender: self)
         })
+        
         floaty.addItem(title: "Join Meeting", handler: { item in
-           
+            self.performSegue(withIdentifier: "guest", sender: self)
         })
         
         floaty.friendlyTap = true
@@ -50,6 +58,48 @@ class meetingsViewTableViewController: UITableViewController {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        var meetingVals = Array(meetings.keys)
+        
+        var curMeetingInfo  = meetingInfo[meetingVals[indexPath.row]]
+        
+
+        
+        getMeetingInfo(meetingID:  meetingVals[indexPath.row])
+        
+        let alert = CleanyAlertViewController(
+            title: "Meeting " + meetingVals[indexPath.row],
+            message: "Host: " + ((curMeetingInfo?.meetingHost) ?? "") ?? "",
+            imageName: "warning_icon")
+
+        alert.addAction(title: "Update Meeting", style: CleanyAlertAction.Style.default, handler: {_ in
+            
+            updateMeeting(meetingID: meetingVals[indexPath.row])
+            
+        })
+        alert.addAction(title: "Add to Google calendar", style: CleanyAlertAction.Style.default, handler: {_ in
+            
+            finalizeMeeting(meetingID: meetingVals[indexPath.row])
+        })
+        alert.addAction(title: "Share Meeting", style: CleanyAlertAction.Style.default, handler: {_ in
+            
+            // text to share
+              
+                   
+                   // set up activity view controller
+                   let textToShare = [ meetingVals[indexPath.row] ]
+                   let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                   activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                
+                   // present the view controller
+                   self.present(activityViewController, animated: true, completion: nil)
+        })
+        alert.addAction(title: "Cancel", style: .cancel)
+
+        present(alert, animated: true, completion: nil)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
             
@@ -59,11 +109,13 @@ class meetingsViewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "right", for: indexPath)
-        
+      
         var meetingVals = Array(meetings.keys)
         
+        meetingInfo[meetingVals[indexPath.row]] = getMeetingInfo(meetingID: meetingVals[indexPath.row])
+        
         cell.textLabel?.text =  (meetings[meetingVals[indexPath.row]]! ? "👑 " : "👤 ") + meetingVals[indexPath.row]
-        cell.detailTextLabel?.text = ""
+        cell.detailTextLabel?.text = (meetingInfo[meetingVals[indexPath.row]]?.meetingCreated ?? false ? "🔒" : "🔓")
         
         return cell
     }

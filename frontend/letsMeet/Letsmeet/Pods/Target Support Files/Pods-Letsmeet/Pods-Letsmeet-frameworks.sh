@@ -178,6 +178,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DatePicker/DatePicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Extended/Extended.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"
@@ -191,6 +192,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CleanyModal/CleanyModal.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DatePicker/DatePicker.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Extended/Extended.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"

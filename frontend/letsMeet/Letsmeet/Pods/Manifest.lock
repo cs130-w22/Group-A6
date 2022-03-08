@@ -5,6 +5,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - CleanyModal (1.0.3)
   - DatePicker (1.3.1):
     - Extended
   - Extended (1.0.5)
@@ -33,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
+  - CleanyModal
   - DatePicker (~> 1.3.0)
   - Floaty (~> 4.2.0)
   - GoogleAPIClientForREST/Calendar
@@ -44,6 +46,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
+    - CleanyModal
     - DatePicker
     - Extended
     - Floaty
@@ -57,6 +60,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  CleanyModal: 5e5fece5b1de97b47ea091f6390ec2b16bfa2f20
   DatePicker: 05ddbd2b57d00ce6f44c1f0611ced32f948d33a6
   Extended: c463225e0c29b2823847866c1b106827772ac678
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
@@ -67,6 +71,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 85b86a43b8b8fae14ee6c9593582fee53db3bca9
+PODFILE CHECKSUM: 8d5282743992f8040cb3f110335735ee3f0f7761
 
 COCOAPODS: 1.11.2
