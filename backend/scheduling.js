@@ -7,6 +7,7 @@
  * @param {Date object} startTime: Earliest time that the meeting can be held.
  * @param {Date object} endTime: Latest time that the meeting can be held.
  * @param {integer} meetingDuration: Length of the meeting (minutes).
+ * @param {integer} interval: lower value means searches over more meeting blocks. Recommended to default to 15.
  * @return {array of time intervals} Uses UTC time.
  * 
  * Note: a time interval is a 2-element array of JS Date objects
@@ -14,7 +15,7 @@
  * 
  */
 
-function calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, endTime, meetingDuration) {
+function calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, endTime, meetingDuration, interval = 15) {
     const NUM_TIMES = 5; // Number of times to return
 
     let num_conflict = Number.MAX_SAFE_INTEGER;
@@ -32,7 +33,6 @@ function calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, e
     meeting_end = new Date(meeting_start);
     meeting_end.setMinutes(startTime.getMinutes() + meetingDuration);
 
-    const INTERVAL = 15; // We search over each 30 minute period by default
     while (meeting_end <= endTime){
         for (const participant of conflictTimes) { // Loop over each participant
             for (const time_interval of participant) { // Loop over each time interval
@@ -64,8 +64,8 @@ function calculateOptimalMeetingTime(conflictTimes, preferredTimes, startTime, e
         curr_conflict = 0;
         curr_prefer = 0;
 
-        meeting_start.setMinutes(meeting_start.getMinutes() + INTERVAL);
-        meeting_end.setMinutes(meeting_end.getMinutes() + INTERVAL);
+        meeting_start.setMinutes(meeting_start.getMinutes() + interval);
+        meeting_end.setMinutes(meeting_end.getMinutes() + interval);
     } 
     
     if (return_array.length > NUM_TIMES){
