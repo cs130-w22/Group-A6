@@ -86,17 +86,21 @@ app.post('/createmeetingevent', (req, res) => {
         const data = result.data();
 
         const conflicts = data['conflicts']
-
-        const conflictsArr = JSON.parse(conflicts)
-
-
         var conflictIntervals = [[]]
-        for(let i = 0; i < conflictsArr.length; i+=2){
-            var temp = []
-            temp.push(new Date(conflictsArr[i]))
-            temp.push(new Date(conflictsArr[i+1]))
-            conflictIntervals[0].push(temp)
+
+        for(let a = 0; a < conflicts.length; a++) {
+            const conflictsArr = JSON.parse(conflicts[a])
+
+            console.log(conflictsArr)
+
+            for (let i = 0; i < conflictsArr.length; i += 2) {
+                var temp = []
+                temp.push(new Date(conflictsArr[i]))
+                temp.push(new Date(conflictsArr[i + 1]))
+                conflictIntervals[0].push(temp)
+            }
         }
+
         const duration = data['duration']
 
         var preferredIntervals = [[[]]]
