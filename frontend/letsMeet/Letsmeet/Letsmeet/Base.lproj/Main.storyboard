@@ -148,9 +148,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGQ-Ts-uQc">
-                                        <rect key="frame" x="126.5" y="829" width="67" height="31"/>
+                                        <rect key="frame" x="132" y="829" width="56" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                         <connections>
                                             <segue destination="Vcc-tP-CqA" kind="presentation" modalPresentationStyle="fullScreen" id="5lE-jK-vVf"/>
                                         </connections>
@@ -226,7 +226,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bDp-q4-oN3"/>
+        <segue reference="5lE-jK-vVf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
