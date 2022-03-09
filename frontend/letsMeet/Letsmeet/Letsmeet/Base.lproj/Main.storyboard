@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-Z7-nPp">
-                                <rect key="frame" x="87" y="251" width="240" height="244"/>
+                                <rect key="frame" x="87" y="251" width="240" height="242"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDU-Op-gSa" customClass="GIDSignInButton">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -28,17 +27,15 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3C-E7-KgX">
-                                        <rect key="frame" x="69" y="155" width="102" height="31"/>
+                                        <rect key="frame" x="97" y="155" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Add Scopes"/>
                                         <connections>
                                             <action selector="calendarAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hGc-z1-7WK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-WA-Ma2">
-                                        <rect key="frame" x="93" y="213" width="54" height="31"/>
+                                        <rect key="frame" x="97" y="212" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                         <connections>
                                             <segue destination="Vcc-tP-CqA" kind="modal" modalPresentationStyle="fullScreen" id="bDp-q4-oN3"/>
                                         </connections>
@@ -72,7 +69,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="16" reuseIdentifier="right" textLabel="nLQ-5p-dbA" detailTextLabel="efF-0e-o7X" style="IBUITableViewCellStyleValue1" id="xKK-Jo-Kfy">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xKK-Jo-Kfy" id="eH1-WV-d3w">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -118,8 +115,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-H7-nm7">
-                                <rect key="frame" x="47" y="18" width="320" height="860"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-H7-nm7">
+                                <rect key="frame" x="47" y="0.0" width="320" height="957"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q5-ie-eOo">
                                         <rect key="frame" x="141.5" y="0.0" width="37.5" height="20.5"/>
@@ -139,18 +136,22 @@
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ueo-Er-8vu">
                                         <rect key="frame" x="0.0" y="452" width="320" height="216"/>
                                     </datePicker>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration (minutes)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pu1-6f-b4U">
+                                        <rect key="frame" x="85.5" y="733" width="149" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Meeting Duration" label="meetingDuration"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-8Q-W1b">
-                                        <rect key="frame" x="126.5" y="733" width="67" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Create"/>
+                                        <rect key="frame" x="107" y="832" width="106" height="30"/>
+                                        <state key="normal" title="Create Meeting"/>
                                         <connections>
                                             <action selector="finishMeeting:" destination="BJm-n8-he6" eventType="touchUpInside" id="fIq-VV-Vm3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGQ-Ts-uQc">
-                                        <rect key="frame" x="132" y="829" width="56" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                        <rect key="frame" x="143" y="927" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
                                         <connections>
                                             <segue destination="Vcc-tP-CqA" kind="presentation" modalPresentationStyle="fullScreen" id="5lE-jK-vVf"/>
                                         </connections>
@@ -166,13 +167,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="MeetingId" destination="Pu1-6f-b4U" id="vvg-n2-Jeb"/>
                         <outlet property="endDate" destination="Ueo-Er-8vu" id="ce8-xB-dTr"/>
                         <outlet property="startDate" destination="DNs-Tz-E0b" id="sXf-Dc-no4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTL-eY-4Q8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="86"/>
+            <point key="canvasLocation" x="1647.826086956522" y="85.714285714285708"/>
         </scene>
         <!--Join Meeting-->
         <scene sceneID="Iba-TS-2sW">
@@ -183,25 +185,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="by1-ZI-hqs">
-                                <rect key="frame" x="179" y="370" width="56" height="156"/>
+                                <rect key="frame" x="162.5" y="371" width="89" height="154"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYF-Hp-3qm">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pay-Me-P7p">
-                                        <rect key="frame" x="0.0" y="64" width="56" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Join"/>
+                                        <rect key="frame" x="0.0" y="64" width="89" height="30"/>
+                                        <state key="normal" title="Join Meeting"/>
                                         <connections>
                                             <action selector="join:" destination="MnO-Vg-DYh" eventType="touchUpInside" id="3ub-3w-fS8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vu-2C-uM0">
-                                        <rect key="frame" x="0.0" y="125" width="56" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                        <rect key="frame" x="0.0" y="124" width="89" height="30"/>
+                                        <state key="normal" title="Back"/>
                                         <connections>
                                             <segue destination="Vcc-tP-CqA" kind="presentation" modalPresentationStyle="fullScreen" id="buv-we-eOE"/>
                                         </connections>
@@ -226,7 +226,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5lE-jK-vVf"/>
+        <segue reference="buv-we-eOE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -12,6 +12,9 @@ class createMeeting: UIViewController {
 
     @IBOutlet weak var startDate: UIDatePicker!
     @IBOutlet weak var endDate: UIDatePicker!
+    
+    @IBOutlet weak var MeetingId: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +34,7 @@ class createMeeting: UIViewController {
             "meetingStart" :  ISO8601DateFormatter.string(from: startDate.date, timeZone: TimeZone.current, formatOptions: [.withInternetDateTime]),
             "meetingEnd" : ISO8601DateFormatter.string(from: endDate.date, timeZone: TimeZone.current, formatOptions: [.withInternetDateTime]),
             "meetingHost" : UserDefaults.standard.string(forKey: "email")!,
-            "duration" : 10,
+            "duration" : MeetingId.text!,
         ]
 
         AF.request("http://cs130project-env.eba-zrazja2x.us-east-1.elasticbeanstalk.com/createmeeting", method: .post, parameters: parameters, encoding: URLEncoding.default)
