@@ -26,14 +26,7 @@ class meetingsViewTableViewController: UITableViewController {
             meetings  = (UserDefaults.standard.object(forKey: "meetings") as? [String:Bool])!
             
         }
-        else
-        {
-            
-            meetings = ["Sahen": true]
-            
-         
-            
-        }
+
         let floaty = Floaty()
       
  
@@ -75,7 +68,7 @@ class meetingsViewTableViewController: UITableViewController {
             message: "Host: " + ((curMeetingInfo?.meetingHost) ?? "") ?? "",
             imageName: "warning_icon")
 
-        alert.addAction(title: "Update Meeting", style: CleanyAlertAction.Style.default, handler: {_ in
+        alert.addAction(title: "Add Meeting Conflicts", style: CleanyAlertAction.Style.default, handler: {_ in
             
             updateMeeting(meetingID: meetingVals[indexPath.row])
             

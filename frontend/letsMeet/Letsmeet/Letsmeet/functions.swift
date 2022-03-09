@@ -21,14 +21,6 @@ public func addMeeting(meetingString: String, host: Bool){
          tempMeetings  = (UserDefaults.standard.object(forKey: "meetings") as? [String:Bool])!
         
     }
-    else
-    {
-        
-         tempMeetings  = ["Sahen": true]
-        
-     
-        
-    }
     
     if(!tempMeetings.keys.contains(meetingString)){
         
@@ -185,18 +177,23 @@ public func finalizeMeeting(meetingID: String){
     
 }
 
-public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
-    
-    
+public struct createMeetingJ:Codable{
+    var start : [String:String]
+    var end : [String:String]
+    var attendees : [[String:String]]
+    var conferenceData : [String:[String:String]]
+}
 
-    
+
+public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
     
     var startD = DateVal()
     
     var endD = DateVal()
-
+/*
     startD.dateTime = "2021-03-04T17:35:00-08:00"
     endD.dateTime = "2021-03-04T17:35:00-12:00"
+    
     let parameters: [String: [String:String]] = [
         "start" :  [
             "dateTime": "2021-03-04T17:35:00-04:00"
@@ -208,6 +205,22 @@ public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
         
         
     ]
+    */
+    
+    print(finalMeeting.attendees)
+    
+    var attendees = finalMeeting.attendees!
+    var test : [[String:String]] = []
+    
+    for x in attendees{
+        test.append(["email": x!])
+    }
+    
+    
+    
+    var test1 = createMeetingJ(start: ["dateTime": finalMeeting.optimalTime![0][0]!], end:["dateTime": finalMeeting.optimalTime![0][1]!], attendees: test, conferenceData: ["createRequest":["requestId":"1thlakdfd"]])
+    
+    
      
     print(finalMeeting.optimalTime?[0][0])
     print(finalMeeting.optimalTime?[0][1])
@@ -216,10 +229,8 @@ public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
         "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "auth")! ?? "" ?? "",
         "Accept": "application/json"
     ]
-    
-    let test = ""
 
-    let request = AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", method:.post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers).responseJSON { response in
+    let request = AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events?conferenceDataVersion=1", method:.post, parameters: test1, encoder: JSONParameterEncoder.default, headers: headers).responseJSON { response in
         switch response.result {
             case .success(let value):
             

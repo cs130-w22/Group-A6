@@ -29,7 +29,7 @@ class createMeeting: UIViewController {
         
         let parameters: [String: Any] = [
             "meetingStart" :  ISO8601DateFormatter.string(from: startDate.date, timeZone: TimeZone.current, formatOptions: [.withInternetDateTime]),
-            "meetingEnd" : ISO8601DateFormatter.string(from: startDate.date, timeZone: TimeZone.current, formatOptions: [.withInternetDateTime]),
+            "meetingEnd" : ISO8601DateFormatter.string(from: endDate.date, timeZone: TimeZone.current, formatOptions: [.withInternetDateTime]),
             "meetingHost" : UserDefaults.standard.string(forKey: "email")!,
             "duration" : 10,
         ]
