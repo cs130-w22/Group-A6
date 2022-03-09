@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+
+
 public func addMeeting(meetingString: String, host: Bool){
     
     let defaults = UserDefaults.standard
@@ -186,20 +188,8 @@ public func finalizeMeeting(meetingID: String){
 public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
     
     
-    var myHttpBody: Data = """
-                                {
-                                "end": {
-                                "dateTime": "\(endTime)",
-                                "timeZone": "America/Chicago"
-                                },
-                                "start": {
-                                "dateTime": "\(startTime)",
-                                "timeZone": "America/Chicago"
-                                },
-                                "summary": "\(summary1)",
-                                "description": "\(description)"
-                                }
-                            """.data(using: .utf8)! as Data
+
+    
     
     var startD = DateVal()
     
@@ -207,10 +197,14 @@ public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
 
     startD.dateTime = "2021-03-04T17:35:00-08:00"
     endD.dateTime = "2021-03-04T17:35:00-12:00"
-    let parameters: [String: Any] = [
-        "start" :  startD,
-        "end" :  endD,
-        "attendees" :  ["spacemaz0@gmail.com", "rsahen@gmail.com"],
+    let parameters: [String: [String:String]] = [
+        "start" :  [
+            "dateTime": "2021-03-04T17:35:00-04:00"
+        ],
+        "end" :  [
+            "dateTime": "2021-03-04T17:35:00-08:00"
+        ]
+        
         
         
     ]
@@ -223,21 +217,24 @@ public func addtoGcal(meetingID: String,finalMeeting: CreatedMeeting){
         "Accept": "application/json"
     ]
     
+    let test = ""
 
-    AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", method:.post, parameters: parameters, headers: headers).responseJSON { response in
-       
-        
+    let request = AF.request("https://www.googleapis.com/calendar/v3/calendars/primary/events", method:.post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers).responseJSON { response in
         switch response.result {
             case .success(let value):
             
-            print(value)
+            print(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue))
 
+ 
             case .failure(let error):
-                print(error)
+     
+            print(error)
+ 
+            
             }        }
         
         
     
     
-    
+  
 }

@@ -8,6 +8,7 @@
 import UIKit
 import Floaty
 import CleanyModal
+
 import MessageUI
 
 class meetingsViewTableViewController: UITableViewController {
@@ -82,6 +83,15 @@ class meetingsViewTableViewController: UITableViewController {
         alert.addAction(title: "Add to Google calendar", style: CleanyAlertAction.Style.default, handler: {_ in
             
             finalizeMeeting(meetingID: meetingVals[indexPath.row])
+            
+            let newAlert = CleanyAlertViewController(
+                title: "Meeting Added to Google calendar!",
+                message: "Thank you for adding a meeting!")
+            
+            newAlert.addAction(title: "Ok", style: .cancel)
+            self.present(newAlert, animated: true, completion: nil)
+
+            
         })
         alert.addAction(title: "Share Meeting", style: CleanyAlertAction.Style.default, handler: {_ in
             
