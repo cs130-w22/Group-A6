@@ -1,4 +1,5 @@
 # Let's Meet
+Our Youtube video is located here: https://youtu.be/d9L52iqWAeY
 
 [![Build Status](https://app.travis-ci.com/cs130-w22/Group-A6.svg?branch=main)](https://app.travis-ci.com/github/cs130-w22/Group-A6)
 [![Deploys backend to elastic beanstalk](https://github.com/cs130-w22/Group-A6/actions/workflows/cd.yml/badge.svg)](https://github.com/cs130-w22/Group-A6/actions/workflows/cd.yml)
